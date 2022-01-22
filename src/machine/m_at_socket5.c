@@ -77,7 +77,6 @@ machine_at_pb540_init(const machine_t *model)
 
     pci_init(PCI_CONFIG_TYPE_2);
     pci_register_slot(0x00, PCI_CARD_NORTHBRIDGE, 0, 0, 0, 0);
-    pci_register_slot(0x01, PCI_CARD_IDE, 1, 2, 3, 4);
     pci_register_slot(0x03, PCI_CARD_VIDEO, 3, 3, 3, 3);
     pci_register_slot(0x06, PCI_CARD_NORMAL, 3, 2, 1, 4);
     pci_register_slot(0x0E, PCI_CARD_NORMAL, 2, 1, 3, 4);
@@ -90,7 +89,7 @@ machine_at_pb540_init(const machine_t *model)
 	
     device_add(&keyboard_ps2_pci_device);
     device_add(&sio_zb_device);
-    device_add(&fdc37c665_ide_device);
+    device_add(&fdc37c665_device);
     device_add(&intel_flash_bxt_ami_device);
 	
     return ret;
