@@ -1948,6 +1948,7 @@ const cpu_legacy_machine_t cpu_legacy_table[] = {
     {"plato",                   cputables_PentiumS5_WinChip_K5},
     {"ambradp90",               cputables_PentiumS5_WinChip_K5},
     {"430nx",                   cputables_PentiumS5_WinChip_K5},
+    {"pb540",                   cputables_PentiumS5_WinChip_K5},
     {"acerv30",                 cputables_PentiumS5_WinChip_K5},
     {"apollo",                  cputables_PentiumS5_WinChip_K5},
     {"vectra54",                cputables_PentiumS5_WinChip_K5},
