@@ -73,13 +73,26 @@ machine_at_pb540_init(const machine_t *model)
     if (bios_only || !ret)
 	return ret;
 
-    machine_at_premiere_common_init(model, PCI_CAN_SWITCH_TYPE);
-	
-    device_add(&i430nx_device);
+    machine_at_common_init(model);
+
+    pci_init(PCI_CONFIG_TYPE_2);
+    pci_register_slot(0x00, PCI_CARD_NORTHBRIDGE, 0, 0, 0, 0);
+    pci_register_slot(0x01, PCI_CARD_IDE, 0, 0, 0, 0);
+    pci_register_slot(0x03, PCI_CARD_VIDEO, 3, 3, 3, 3);
+    pci_register_slot(0x06, PCI_CARD_NORMAL, 3, 2, 1, 4);
+    pci_register_slot(0x0E, PCI_CARD_NORMAL, 2, 1, 3, 4);
+    pci_register_slot(0x0C, PCI_CARD_NORMAL, 1, 3, 2, 4);
+    pci_register_slot(0x02, PCI_CARD_SOUTHBRIDGE, 0, 0, 0, 0);
+    device_add(&i430lx_device);
 
     if (gfxcard == VID_INTERNAL)
 	device_add(&gd5434_onboard_pci_device);
-
+	
+    device_add(&keyboard_ps2_pci_device);
+    device_add(&sio_zb_device);
+    device_add(&fdc37c665_ide_device);
+    device_add(&intel_flash_bxt_ami_device);
+	
     return ret;
 }
 
