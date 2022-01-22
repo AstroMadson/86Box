@@ -441,6 +441,7 @@ extern const device_t	*at_pb520r_get_device(void);
 extern int	machine_at_plato_init(const machine_t *);
 extern int	machine_at_ambradp90_init(const machine_t *);
 extern int	machine_at_430nx_init(const machine_t *);
+extern int	machine_at_pb540_init(const machine_t *);
 
 extern int	machine_at_acerv30_init(const machine_t *);
 extern int	machine_at_apollo_init(const machine_t *);
@@ -457,6 +458,9 @@ extern int	machine_at_hot543_init(const machine_t *);
 extern int	machine_at_p54sp4_init(const machine_t *);
 extern int	machine_at_sq588_init(const machine_t *);
 
+#ifdef EMU_DEVICE_H
+extern const device_t	*at_pb540_get_device(void);
+#endif
 
 /* m_at_socket7_3v.c */
 extern int	machine_at_p54tp4xe_init(const machine_t *);
